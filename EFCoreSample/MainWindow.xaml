@@ -1,0 +1,184 @@
+﻿<Window x:Class="EFCoreSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFCoreSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+                xmlns:svgc="http://sharpvectors.codeplex.com/svgc/">
+    <Window.Resources>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <ControlTemplate x:Key="rounded_btn" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="true">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid Background="#C7C8CC">
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Width="800px" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5px">
+            <Border Grid.Column="0" BorderBrush="#B4B4B8" BorderThickness="2px" Width="200px">
+                <StackPanel Orientation="Vertical">
+                    <Button Template="{DynamicResource rounded_btn}" Margin="0,20,0,0" Visibility="Visible" Content="Home" Width="140px" Height="30px" Foreground="WhiteSmoke" FontFamily="Futura" FontSize="14px" Click="Button_Click_3">
+                        <Button.Style >
+
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#474F7A"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BFCFE7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
+                    <Button Template="{DynamicResource rounded_btn}" Margin="0,40" Visibility="Visible" Content="Employees" Width="140px" Height="30px" Foreground="WhiteSmoke" FontFamily="Futura" FontSize="14px" Click="Button_Click_2">
+                        <Button.Style >
+
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#474F7A"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BFCFE7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
+                    <Button Name="customer" Template="{DynamicResource rounded_btn}" Margin="0,0,0,40" Visibility="Visible" Content="Customer" Width="140px" Height="30px" Foreground="WhiteSmoke" FontFamily="Futura" FontSize="14px" Click="Button_Click_1">
+                        <Button.Style >
+
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#474F7A"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BFCFE7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
+                    <Button Template="{DynamicResource rounded_btn}" Margin="0,0,0,20" Visibility="Visible" Content="Product" Name="products" Width="140px" Height="30px" Foreground="WhiteSmoke" FontFamily="Futura" FontSize="14px" Click="Button_Click_4">
+                        <Button.Style >
+
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#474F7A"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#BFCFE7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
+                    <Label Height="110px" Width="110px" Margin="10,10,0,0">
+                        <svgc:SvgViewbox Source="/resource/q.svg"/>
+                    </Label>
+
+                </StackPanel>
+            </Border>
+            <Border Name="Home" Grid.Column="1" Visibility="Visible"  BorderThickness="3px" Width="580px" Margin="5,0,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/144795.jpg"/>
+                </Border.Background>
+                <StackPanel >
+                    <Label Content="wellcome ..." HorizontalAlignment="Center" Padding="10" Margin="20" FontSize="30px" FontFamily="Times New Roman" >
+                        <Label.Triggers>
+                            <EventTrigger  RoutedEvent="Window.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(TextBlock.Opacity)" 
+                                 From="0" To="1" 
+                                 AutoReverse="False" 
+                                 BeginTime="0:0:0" Duration="0:0:1">
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </StackPanel>
+            </Border>
+            <Border Name="Employees" Grid.Column="1" Visibility="Collapsed" BorderBrush="#B4B4B8" BorderThickness="3px" Width="580px" Margin="5,0,0,0">
+                <StackPanel Background="#FFF6E9" Orientation="Vertical">
+                    <DataGrid IsReadOnly="True" CanUserAddRows="False" ColumnWidth="*" MinWidth="200px" CanUserResizeColumns="False" Margin="20,0,20,0" Name="employeesgrid" SelectionChanged="employeesgrid_SelectionChanged" >
+
+                    </DataGrid>
+                    <Label Content="---" Name="contentChange">
+
+                    </Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="AddEmployee" Content="Add Employee" Width="130" Height="40" Margin="0,150,30,0" Background="Azure" Click="AddEmployee_Click"/>
+                        <Button x:Name="EditEmployee" Content="Edit Employee" Width="130" Height="40"  Margin="0,150,30,0" Background="Beige" Click="EditEmployee_Click"/>
+                        <Button x:Name="RemoveEmployee" Content="Remove Employee" Width="130" Height="40"  Margin="0,150,0,0" Background="PaleVioletRed" Click="RemoveEmployee_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border Name="customers" Grid.Column="1" Visibility="Collapsed" BorderBrush="#B4B4B8" BorderThickness="3px" Width="580px" Margin="5,0,0,0">
+                <StackPanel Background="#FFF6E9">
+
+                    <DataGrid IsReadOnly="true" CanUserAddRows="False" ColumnWidth="*" MinWidth="200px" CanUserResizeColumns="False" Margin="20,0,20,0" Name="customergrid" SelectionChanged="customergrid_SelectionChanged" >
+
+                    </DataGrid>
+                    <Label Content="---" Name="customerchange">
+
+                    </Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="AddCustomerbtn" Content="Add Product" Width="130" Height="40" Margin="0,150,30,0" Background="Azure" Click="AddCustomerbtn_Click"/>
+                        <Button x:Name="EditCustomerbtn" Content="Edit Product" Width="130" Height="40"  Margin="0,150,30,0" Background="Beige" Click="EditCustomerbtn_Click"/>
+                        <Button x:Name="RemoveCustomerbtn" Content="Remove Product" Width="130" Height="40"  Margin="0,150,0,0" Background="PaleVioletRed" Click="RemoveCustomerbtn_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border Name="productss" Grid.Column="1" Visibility="Collapsed" BorderBrush="#B4B4B8" BorderThickness="3px" Width="580px" Margin="5,0,0,0">
+                <StackPanel Background="#FFF6E9">
+                    <DataGrid IsReadOnly="True" CanUserAddRows="False" ColumnWidth="*" MinWidth="200px" CanUserResizeColumns="False" Margin="20,0,20,0" Name="productgird" SelectionChanged="productgird_SelectionChanged">
+
+
+                    </DataGrid>
+                    <Label Content="---" Name="productchange">
+
+                    </Label>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="AddProductbtn" Content="Add Product" Width="130" Height="40" Margin="0,150,30,0" Background="Azure" Click="AddProductbtn_Click"/>
+                        <Button x:Name="EditProductbtn" Content="Edit Product" Width="130" Height="40"  Margin="0,150,30,0" Background="Beige" Click="EditProductbtn_Click"/>
+                        <Button x:Name="RemoveProductbtn" Content="Remove Product" Width="130" Height="40"  Margin="0,150,0,0" Background="PaleVioletRed" Click="RemoveProductbtn_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>

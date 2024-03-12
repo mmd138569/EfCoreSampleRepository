@@ -88,3 +88,5 @@ C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8
 C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8.0\ref\EFCoreSample.dll
 C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8.0\AddEditCustomer.g.cs
 C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8.0\AddEditCustomer.baml
+C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8.0\GeneratedInternalTypeHelper.g.cs
+C:\Users\AFRACO\Source\Repos\sampleEFCore\EFCoreSample\obj\Debug\net8.0-windows8.0\EFCoreSample.sourcelink.json
